@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MyQuestionListComponent } from './pages/my-question-list/my-question-list.component';
 import { PostQuestionComponent } from './pages/post-question/post-question.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 export const routePaths = {
   dashboardPage: 'dashboard', 
@@ -23,7 +24,8 @@ const routes: Routes = [
   }, 
   {
     path: routePaths.dashboardPage, 
-    component: DashboardComponent
+    component: DashboardComponent, 
+    canActivate: [AuthGuardService]
   }, 
   {
     path: routePaths.loginPage, 
@@ -35,15 +37,18 @@ const routes: Routes = [
   }, 
   {
     path: routePaths.userQuestionListPage, 
-    component: MyQuestionListComponent
+    component: MyQuestionListComponent, 
+    canActivate: [AuthGuardService]
   }, 
   {
     path: routePaths.postQuestionPage, 
-    component: PostQuestionComponent
+    component: PostQuestionComponent, 
+    canActivate: [AuthGuardService]
   }, 
   {
     path: routePaths.globalQuestionListPage, 
-    component: GlobalQuestionListComponent
+    component: GlobalQuestionListComponent, 
+    canActivate: [AuthGuardService]
   }
 ];
 

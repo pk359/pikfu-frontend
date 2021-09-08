@@ -11,7 +11,6 @@ export enum StatusCodes {
 @Injectable({ providedIn: 'root' })
 export class RequestService {
   constructor(private http: HttpClient) {}
-  init() {}
   async send<T>(
     method: RequestMethod,
     url: string,
@@ -47,12 +46,6 @@ export class RequestService {
         .patch<T>(url, body, { headers })
         .pipe(timeout(apiTimeout))
         .toPromise();
-    }
-    const statusCode =
-      (response && (response as any).status && (response as any).statusCode) ||
-      '';
-    if (statusCode === StatusCodes.SUCCESS) {
-      // this.cache.put({ req: log, data: response });
     }
     const endTime = Date.now();
     log = { ...log, result: response, timeUsed: `${endTime - startTime}ms` };

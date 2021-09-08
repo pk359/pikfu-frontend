@@ -11,7 +11,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
   constructor(private localStorageService: LocalStorageService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const jwtToken = this.localStorageService.getItem('ACCESS_TOKEN');
+    const jwtToken = this.localStorageService.getItem('JWT_TOKEN');
 
     const body = { ...req.body };
 

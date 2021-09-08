@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div fxLayout="column" *ngIf="loginForm" [formGroup]="loginForm">
+    <div fxLayout="column" fxLayoutGap="10px">
+        <div fxLayout="column" fxLayoutGap="10px">
+
+            <label>Email</label>
+            <input formControlName="email" />
+        </div>
+        <div *ngIf="email.dirty && email.invalid">
+            <div *ngIf="email.errors.required">
+                Email is a requried field
+            </div>
+            <div *ngIf="email.errors.email">
+                Invalid email pattern
+            </div>
+        </div>
+    </div>
+    <div fxLayout="column" fxLayoutGap="10px">
+        <div fxLayout="column" fxLayoutGap="10px">
+            <label>Password</label>
+            <input formControlName="password" />
+        </div>
+
+        <div *ngIf="password.dirty && password.invalid">
+            <div *ngIf="password.errors.required">
+                Password is a required field
+            </div>
+            <div *ngIf="password.errors.minLength">
+                Minimum {{passwordMinLength}} characters required
+            </div>
+        </div>
+    </div>
+    <div>
+        <button (click)="login()">Login</button> 
+    </div>
+
+    <div>
+        <a routerLink="/register">
+            Register
+        </a>
+    </div>
+</div>

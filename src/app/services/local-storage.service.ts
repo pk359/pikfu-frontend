@@ -1,20 +1,7 @@
 import { Injectable } from '@angular/core';
 
 type TLocalStorageKeys =
-    'ACCESS_TOKEN';
-class LocalStorage implements Storage {
-    [name: string]: any;
-    readonly length = 0;
-    clear(): void { }
-    getItem(key: string): string | null {
-        return null;
-    }
-    key(index: number): string | null {
-        return null;
-    }
-    removeItem(key: string): void { }
-    setItem(key: string, value: string): void { }
-}
+    'JWT_TOKEN';
 
 @Injectable({
     providedIn: 'root',
@@ -23,7 +10,7 @@ export class LocalStorageService implements Storage {
     private storage: Storage;
 
     constructor() {
-        this.storage = new LocalStorage();
+        this.storage = localStorage;
     }
 
     [name: string]: any;

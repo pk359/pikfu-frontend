@@ -1,1 +1,58 @@
-<p>register works!</p>
+<div fxLayout="column" *ngIf="registrationForm" [formGroup]="registrationForm">
+    <div fxLayout="column" fxLayoutGap="10px">
+        <div fxLayout="column" fxLayoutGap="10px">
+            <label>Full name</label>
+            <input formControlName="name" />
+        </div>
+        <div *ngIf="name.dirty && name.invalid">
+            <div *ngIf="name.errors.required">
+                Full name is a required field
+            </div>
+            <div *ngIf="name.errors.minlength">
+                Minimum {{minNameLength}} character is required.
+            </div>
+        </div>
+    </div>
+    <div fxLayout="column" fxLayoutGap="10px">
+        <div fxLayout="column" fxLayoutGap="10px">
+
+            <label>Email</label>
+            <input formControlName="email" />
+        </div>
+        <div *ngIf="email.dirty && email.invalid">
+            <div *ngIf="email.errors.required">
+                Email is a requried field
+            </div>
+            <div *ngIf="email.errors.email">
+                Invalid email pattern
+            </div>
+        </div>
+    </div>
+    <div fxLayout="column" fxLayoutGap="10px">
+        <div fxLayout="column" fxLayoutGap="10px">
+            <label>Password</label>
+            <input formControlName="password" />
+        </div>
+
+        <div *ngIf="password.dirty && password.invalid">
+            <div *ngIf="password.errors.required">
+                Password is a required field
+            </div>
+            <div *ngIf="password.errors.minlength">
+                Minimum {{passwordMinLength}} characters required
+            </div>
+        </div>
+    </div>
+    <div>
+        <button (click)="register()">Register</button>
+    </div>
+    <div *ngIf="errorMessage">
+        {{errorMessage}}
+    </div>
+
+    <div>
+        <a routerLink="/login">
+            Login
+        </a>
+    </div>
+</div>
