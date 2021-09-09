@@ -6,15 +6,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { httpInterceptors } from './interceptors/http';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { QuestionDetailPageComponent } from './pages/question-detail-page/question-detail-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
-    LoginComponent
+    RegisterPageComponent,
+    LoginPageComponent,
+    QuestionDetailPageComponent
   ],
   imports: [
     BrowserModule,

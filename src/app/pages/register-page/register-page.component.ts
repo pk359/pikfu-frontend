@@ -7,11 +7,11 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { RequestService } from 'src/app/services/request.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-register-page',
+  templateUrl: './register-page.component.html',
+  styleUrls: ['./register-page.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterPageComponent implements OnInit {
 
   registrationForm: FormGroup;
   readonly passwordMinLength = 8;

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { QuestionDetailPageComponent } from './pages/question-detail-page/question-detail-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
 export const routePaths = {
@@ -15,17 +16,25 @@ const routes: Routes = [
     pathMatch: 'full', 
     redirectTo: routePaths.questionDetailPage
   }, 
- 
+ {
+   path: routePaths.questionDetailPage, 
+   component: QuestionDetailPageComponent, 
+   canActivate: [AuthGuardService]
+ }, 
   {
     path: routePaths.loginPage, 
-    component: LoginComponent, 
+    component: LoginPageComponent, 
     canActivate: [AuthGuardService]
   }, 
   {
     path: routePaths.registerPage, 
-    component: RegisterComponent, 
+    component: RegisterPageComponent, 
     canActivate: [AuthGuardService]
   }, 
+  {
+    path: '**', 
+    redirectTo: routePaths.questionDetailPage
+  }
  
 ];
 
