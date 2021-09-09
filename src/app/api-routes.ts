@@ -1,5 +1,5 @@
 export const apiRoutes = {
-    submitQuestionApi: 'api/submit-question', 
+    submitAnswerApi: 'api/submit-answer', 
     loginApi: 'api/login', 
     registerApi: 'api/register'
 } 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { apiRoutes } from 'src/app/api-routes';
@@ -11,7 +11,7 @@ import { RequestService } from 'src/app/services/request.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   readonly passwordMinLength = 8;
@@ -26,6 +26,11 @@ export class LoginComponent {
       password: ['', [Validators.required, Validators.minLength(this.passwordMinLength)]]
     })
   }
+
+  ngOnInit() {
+   
+  }
+  
 
 
   get email(): any {
@@ -50,7 +55,7 @@ export class LoginComponent {
     }
     
     this.localStorageService.setItem('JWT_TOKEN', data?.jwtToken);
-    this.router.navigate([routePaths.dashboardPage])
+    this.router.navigate([routePaths.questionDetailPage])
     console.log({ jwtToken: data?.jwtToken });
   }
 
