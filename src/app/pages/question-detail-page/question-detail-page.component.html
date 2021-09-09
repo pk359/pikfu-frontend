@@ -8,8 +8,9 @@
     <div>
 
     </div>
-    <div>
-        <div class="question-detail__answer-container" *ngFor="let answer of answers; trackBy: trackAnswerByFn" fxFlex="column" fxLayoutGap="5px">
+    <div fxLayout="column" fxLayoutGap="10px">
+        <div class="question-detail__answer-container" *ngFor="let answer of answers; trackBy: trackAnswerByFn"
+            fxLayout="column" fxLayoutGap="5px">
             <div class="question-detail__poster-name">
                 {{answer.postedBy}}
             </div>
