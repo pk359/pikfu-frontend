@@ -58,7 +58,7 @@ export class RequestService {
     });
 
     if ((response as any)?.error?.code === 'TOKEN_EXPIRED' ) {
-      this.localStorageService.removeItem('JWT_TOKEN');
+      this.localStorageService.removeItem('jwt_token');
       this.router.navigateByUrl(routePaths.loginPage);
     }
 

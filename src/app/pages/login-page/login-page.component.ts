@@ -50,12 +50,15 @@ export class LoginPageComponent implements OnInit {
       body: this.loginForm.value
     })
 
-    if (error)  {
+    if (!!error) {
       this.errorMessage = error.message;
+      setTimeout(() => { this.errorMessage = null }, 2000)
+      console.error(error)
+      return;
     }
     
-    this.localStorageService.setItem('JWT_TOKEN', data?.jwtToken);
-    this.router.navigate([routePaths.questionDetailPage])
+    this.localStorageService.setItem('jwt_token', data?.jwtToken);
+    this.router.navigate([routePaths.questionDetailPage, '4'])
     console.log({ jwtToken: data?.jwtToken });
   }
 

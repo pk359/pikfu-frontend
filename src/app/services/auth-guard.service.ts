@@ -22,7 +22,7 @@ export class AuthGuardService implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    const accessToken = this.localStorageService.getItem('JWT_TOKEN');
+    const accessToken = this.localStorageService.getItem('jwt_token');
     const isAuthPage = this.checkAuthPage(next.url.join(''))
     if (!!accessToken) {
       if (isAuthPage) {

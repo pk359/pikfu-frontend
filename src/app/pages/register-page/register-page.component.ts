@@ -55,9 +55,9 @@ export class RegisterPageComponent implements OnInit {
       return;
     }
 
-    this.localStorageService.setItem('JWT_TOKEN', data?.jwtToken)
+    this.localStorageService.setItem('jwt_token', data?.jwtToken)
 
-    this.router.navigate([routePaths.questionDetailPage])
+    this.router.navigate([routePaths.questionDetailPage, '4'])
     console.log({ jwtToken: data?.jwtToken })
   }
 

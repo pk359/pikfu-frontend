@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 type TLocalStorageKeys =
-    'JWT_TOKEN';
+    'jwt_token';
 
 @Injectable({
     providedIn: 'root',

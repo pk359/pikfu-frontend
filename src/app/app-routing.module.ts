@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: `${routePaths.questionDetailPage}/3`
+    redirectTo: `${routePaths.questionDetailPage}/4`
   },
   {
     path: `${routePaths.questionDetailPage}/:questionId`,
@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: `${routePaths.questionDetailPage}/3`
+    redirectTo: `${routePaths.questionDetailPage}/4`
   }
 
 ];

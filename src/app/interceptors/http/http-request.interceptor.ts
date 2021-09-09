@@ -11,7 +11,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
   constructor(private localStorageService: LocalStorageService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const jwtToken = this.localStorageService.getItem('JWT_TOKEN');
+    const jwtToken = this.localStorageService.getItem('jwt_token');
 
     const body = { ...req.body };
 
@@ -25,7 +25,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
 
     if (jwtToken) {
       clonedAuthReq = req.clone({
-        headers: req.headers.append('x-access-token', jwtToken),
+        headers: req.headers.append('jwt_token', jwtToken),
       });
     }
     return next.handle(clonedAuthReq);
