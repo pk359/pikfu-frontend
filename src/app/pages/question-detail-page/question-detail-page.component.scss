@@ -1,0 +1,16 @@
+.question-detail__answer-container:nth-child(1) {
+ margin-top: 20px;
+}
+.question-detail__answer-container {
+    border: 1px solid grey;
+    border-right-width: 0;
+    border-left-width: 0;
+}
+
+.question-detail__answer-text {
+    color: black
+}
+.question-detail__poster-name {
+    color: orange;
+    font-style: italic;
+}

@@ -1,4 +1,4 @@
-<div fxLayout="column">
+<div class="question-detail" fxLayout="column">
     <div fxLayout="column">
         <h1>Q. {{question}}</h1>
         <a routerLink="/add-answer/4">
@@ -9,8 +9,13 @@
 
     </div>
     <div>
-        <div *ngFor="let answer of answers; trackBy: trackAnswerByFn">
-
+        <div class="question-detail__answer-container" *ngFor="let answer of answers; trackBy: trackAnswerByFn" fxFlex="column" fxLayoutGap="5px">
+            <div class="question-detail__poster-name">
+                {{answer.postedBy}}
+            </div>
+            <div class='question-detail__answer-text'>
+                {{answer.answerText}}
+            </div>
         </div>
     </div>
 </div>

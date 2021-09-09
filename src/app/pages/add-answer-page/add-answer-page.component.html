@@ -1,1 +1,22 @@
-<p>add-answer-page works!</p>
+<div fxLayout="column">
+    <div fxLayout="column">
+        <h1>Q. {{question}}</h1>
+        <a routerLink="/question-detail/4">
+            <button>View Answers</button>
+        </a>
+    </div>
+    <div fxLayout="column" [formGroup]="form">
+        <textarea formControlName="answer" rows="5"></textarea>
+        <div class="error" *ngIf="answer.dirty && answer.invalid">
+            <div   *ngIf="answer.errors.required">
+                Your answer cant be empty
+            </div>
+            <div *ngIf="answer.errors.forbiddenValue">
+                You can not enter that value
+            </div>
+        </div>
+    </div>
+    <button (click)="submitAnswer()">
+        Submit
+    </button>
+</div>

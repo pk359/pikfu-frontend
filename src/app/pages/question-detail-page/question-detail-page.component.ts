@@ -20,7 +20,6 @@ export class QuestionDetailPageComponent implements OnInit {
     this.questionId = this.activatedRoute.snapshot.params.questionId;
     this.question =  (await this.requestService.send<{data: {question: string}}>('GET', `${apiRoutes.getQuestion}?questionId=${this.questionId}`)).data.question
     this.answers =  (await this.requestService.send<{data: {list: IAnswers}}>('GET', `${apiRoutes.getAnswers}/?questionId=${this.questionId}`)).data.list
-    
   }
 
   trackAnswerByFn(index: number, item: IAnswer) {
