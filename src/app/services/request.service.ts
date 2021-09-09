@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { timeout } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { routePaths } from '../app-routing.module';
 import { HttpLogger } from '../utils/http-logger.util';
+import { LocalStorageService } from './local-storage.service';
 
 export type RequestMethod = 'GET' | 'POST' | 'PATCH';
 export enum StatusCodes {
@@ -10,7 +13,7 @@ export enum StatusCodes {
 }
 @Injectable({ providedIn: 'root' })
 export class RequestService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router, private localStorageService: LocalStorageService) {}
   async send<T>(
     method: RequestMethod,
     url: string,
@@ -53,6 +56,11 @@ export class RequestService {
     HttpLogger.logSuccess('REQUEST', 'COMPLETE', {
       ...log,
     });
+
+    if ((response as any)?.error?.code === 'TOKEN_EXPIRED' ) {
+      this.localStorageService.removeItem('JWT_TOKEN');
+      this.router.navigateByUrl(routePaths.loginPage);
+    }
 
     return response;
   }

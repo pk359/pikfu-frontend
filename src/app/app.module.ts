@@ -9,6 +9,7 @@ import { httpInterceptors } from './interceptors/http';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { QuestionDetailPageComponent } from './pages/question-detail-page/question-detail-page.component';
+import { AddAnswerPageComponent } from './pages/add-answer-page/add-answer-page.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { QuestionDetailPageComponent } from './pages/question-detail-page/questi
     AppComponent,
     RegisterPageComponent,
     LoginPageComponent,
-    QuestionDetailPageComponent
+    QuestionDetailPageComponent,
+    AddAnswerPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,16 @@
-<p>question-detail-page works!</p>
+<div fxLayout="column">
+    <div fxLayout="column">
+        <h1>Q. {{question}}</h1>
+        <a routerLink="/add-answer/3">
+            <button>Add an answer</button>
+        </a>
+    </div>
+    <div>
+
+    </div>
+    <div>
+        <div *ngFor="let answer of answers; trackBy: trackAnswerByFn">
+
+        </div>
+    </div>
+</div>
