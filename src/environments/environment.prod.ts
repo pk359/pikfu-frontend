@@ -1,5 +1,5 @@
 export const environment = {
   production: true, 
-  backendUrl: 'http://localhost:4001', 
-  backendWSUrl: 'ws://localhost:4001'
+  backendUrl: 'https://quora-live-pikfu.herokuapp.com', 
+  backendWSUrl: 'ws://quora-live-pikfu.herokuapp.com/'
 };
